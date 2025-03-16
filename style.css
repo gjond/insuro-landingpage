@@ -112,6 +112,11 @@ nav ul li a:hover {
 }
 
 /* Video Section */
+.video-section {
+    padding: 50px 20px;
+    background: #f1f1f1;
+}
+
 .video-container {
     position: relative;
     max-width: 800px;
@@ -124,14 +129,6 @@ nav ul li a:hover {
     height: auto;
     aspect-ratio: 16 / 9;
     border-radius: 10px;
-}
-
-}
-
-iframe {
-    width: 100%;
-    max-width: 560px;
-    height: auto;
 }
 
 /* Signup */
@@ -162,6 +159,17 @@ iframe {
 
 .signup-section button:hover {
     background: #0056b3;
+}
+
+/* Erfolgsnachricht */
+#success-message {
+    font-size: 1.2rem;
+    background: #d4edda;
+    color: #155724;
+    padding: 15px;
+    border-radius: 5px;
+    margin-top: 20px;
+    display: none;
 }
 
 /* Footer */
@@ -217,13 +225,4 @@ footer {
         color: #007BFF;
         font-size: 1.2rem;
     }
-}
-#success-message {
-    font-size: 1.2rem;
-    background: #d4edda;
-    color: #155724;
-    padding: 15px;
-    border-radius: 5px;
-    margin-top: 20px;
-    display: none;
 }
