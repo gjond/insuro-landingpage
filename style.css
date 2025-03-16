@@ -170,6 +170,13 @@ nav ul li a:hover {
     border-radius: 5px;
     margin-top: 20px;
     display: none;
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+/* Animation für Erfolgsmeldung */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
 }
 
 /* Footer */
@@ -179,7 +186,7 @@ footer {
     color: #333;
 }
 
-/* ========== HAMBURGER-MENÜ MODERN & ANIMIERT ========== */
+/* ========== HAMBURGER-MENÜ FIX ========== */
 .menu-toggle {
     display: none;
     flex-direction: column;
