@@ -165,57 +165,50 @@ footer {
     color: #333;
 }
 
-/* ========== MOBILE OPTIMIERUNG ========== */
+/* ========== HAMBURGER-MENÜ (VERBESSERT) ========== */
+.menu-toggle {
+    display: none;
+    font-size: 2rem;
+    cursor: pointer;
+    padding: 10px;
+}
+
+/* Navigation */
 @media screen and (max-width: 768px) {
-    /* Header */
-    header {
-        flex-direction: column;
-        padding: 15px;
+    .menu-toggle {
+        display: block;
+        position: absolute;
+        top: 15px;
+        right: 20px;
+        z-index: 1001;
     }
 
     nav ul {
+        display: none;
         flex-direction: column;
-        gap: 10px;
-        padding: 10px;
+        position: absolute;
+        top: 60px;
+        right: 10px;
+        background: white;
+        padding: 15px;
+        border-radius: 5px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        width: 150px;
+        transition: all 0.3s ease-in-out;
+        opacity: 0;
+    }
+
+    nav ul.open {
+        display: flex;
+        opacity: 1;
     }
 
     nav ul li {
-        display: block;
+        margin: 10px 0;
     }
 
-    /* Hero */
-    .hero {
-        padding: 40px 15px;
-    }
-
-    .hero h1 {
-        font-size: 2rem;
-    }
-
-    /* Features */
-    .feature-grid {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .feature-item {
-        width: 90%;
-        max-width: 300px;
-    }
-
-    /* Video */
-    .video-container {
-        max-width: 90%;
-    }
-
-    /* Signup */
-    .signup-section input {
-        width: 100%;
-        max-width: 300px;
-    }
-
-    .signup-section button {
-        width: 100%;
-        max-width: 300px;
+    nav ul li a {
+        color: #007BFF;
+        font-size: 1.2rem;
     }
 }
