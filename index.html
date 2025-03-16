@@ -3,21 +3,48 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Insuro – Versicherungen einfach, schnell & sicher</title>
+    <title>Insuro – Die Zukunft der Versicherungen</title>
     <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
 </head>
 <body>
 
     <!-- Header mit Logo -->
     <header>
         <img src="image.png" alt="Insuro Logo" class="logo">
+        <nav>
+            <ul>
+                <li><a href="#features">Features</a></li>
+                <li><a href="#beta">Beta-Test</a></li>
+                <li><a href="#kontakt">Kontakt</a></li>
+            </ul>
+        </nav>
     </header>
 
-    <!-- Hauptbereich mit Value Proposition -->
+    <!-- Hero Section mit animiertem Text -->
     <section class="hero">
-        <h1>Versicherungen neu gedacht – einfach, schnell & sicher</h1>
-        <p>Insuro ist die erste Plattform, die automatisierte Versicherungsvergleiche, personalisierte Empfehlungen und direkte Vertragsabschlüsse in einer einzigen App vereint.</p>
-        <a href="#signup" class="cta-button">Jetzt für die Beta anmelden</a>
+        <h1><span class="highlight">Versicherungen</span> neu gedacht – <br> einfach, schnell & sicher</h1>
+        <p>Die erste Plattform, die KI, Automatisierung & smarte Empfehlungen kombiniert.</p>
+        <a href="#beta" class="cta-button">Jetzt für die Beta anmelden</a>
+    </section>
+
+    <!-- Features mit futuristischem Hover-Effekt -->
+    <section id="features" class="features">
+        <h2>Was macht Insuro einzigartig?</h2>
+        <div class="feature-grid">
+            <div class="feature-item">
+                <h3>🚀 Automatisierter Vergleich</h3>
+                <p>In Sekunden die besten Versicherungen – 100 % transparent.</p>
+            </div>
+            <div class="feature-item">
+                <h3>🤖 KI-gestützte Empfehlungen</h3>
+                <p>Maßgeschneiderte Versicherungen – kein unnötiger Papierkram.</p>
+            </div>
+            <div class="feature-item">
+                <h3>🔒 Direkter Vertragsabschluss</h3>
+                <p>Schließe deine Versicherung in nur 2 Klicks ab.</p>
+            </div>
+        </div>
     </section>
 
     <!-- Platzhalter für Video -->
@@ -28,10 +55,10 @@
         </div>
     </section>
 
-    <!-- Beta-Anmeldung -->
-    <section id="signup" class="signup-section">
+    <!-- Beta-Anmeldung mit animierten Feldern -->
+    <section id="beta" class="signup-section">
         <h2>Jetzt Beta-Zugang sichern</h2>
-        <p>Melde dich kostenlos an und erhalte exklusiven Zugriff auf die Insuro-Beta!</p>
+        <p>Teste Insuro als einer der Ersten & profitiere von exklusiven Vorteilen.</p>
         <form action="https://formspree.io/f/DEIN-FORM-ID" method="POST">
             <input type="email" name="email" placeholder="Deine E-Mail-Adresse" required>
             <button type="submit">Anmelden</button>
