@@ -17,7 +17,8 @@ header {
 .logo {
     max-width: 200px;
     display: block;
-    margin: 0 auto;
+    margin: 20px auto;
+    border: 1px solid #ddd;
 }
 
 /* Hero-Bereich */
