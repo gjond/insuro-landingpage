@@ -1,7 +1,7 @@
 function toggleMenu() {
     var menu = document.getElementById("menu");
 
-    // Öffnen/Schließen des Menüs mit sanfter Animation
+    // Menü öffnen/schließen mit Animation
     if (menu.classList.contains("open")) {
         menu.classList.remove("open");
     } else {
