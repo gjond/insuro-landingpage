@@ -112,14 +112,20 @@ nav ul li a:hover {
 }
 
 /* Video Section */
-.video-section {
-    padding: 50px 20px;
-    background: #f1f1f1;
-}
-
 .video-container {
+    position: relative;
     max-width: 800px;
     margin: auto;
+    padding: 10px;
+}
+
+.video-container iframe {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 16 / 9;
+    border-radius: 10px;
+}
+
 }
 
 iframe {
