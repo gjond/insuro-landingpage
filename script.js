@@ -1,24 +1,31 @@
 document.addEventListener("DOMContentLoaded", function () {
-    const form = document.getElementById("signup-form");
-    const successMessage = document.getElementById("success-message");
+    const menuToggle = document.querySelector(".menu-toggle");
+    const menu = document.querySelector("nav ul");
 
-    form.addEventListener("submit", function (event) {
-        event.preventDefault(); // Verhindert Seitenwechsel
+    menuToggle.addEventListener("click", function () {
+        // Überprüft, ob das Menü bereits geöffnet ist
+        if (menu.classList.contains("open")) {
+            menu.classList.remove("open");
+            menu.style.display = "none"; // Versteckt das Menü für Safari
+        } else {
+            menu.classList.add("open");
+            menu.style.display = "flex"; // Zeigt das Menü an
+        }
+    });
 
-        const formData = new FormData(form);
-
-        fetch(form.action, {
-            method: form.method,
-            body: formData,
-            headers: { "Accept": "application/json" }
-        })
-        .then(response => response.json())
-        .then(data => {
-            form.style.display = "none";  // Versteckt das Formular
-            successMessage.style.display = "block"; // Zeigt die Erfolgsnachricht
-        })
-        .catch(error => {
-            alert("Es gab ein Problem! Bitte versuche es erneut.");
+    // Menü schließen, wenn ein Link geklickt wird
+    document.querySelectorAll("nav ul li a").forEach(link => {
+        link.addEventListener("click", function () {
+            menu.classList.remove("open");
+            menu.style.display = "none";
         });
+    });
+
+    // Menü schließen, wenn außerhalb geklickt wird (nur in Safari notwendig)
+    document.addEventListener("click", function (event) {
+        if (!menu.contains(event.target) && !menuToggle.contains(event.target)) {
+            menu.classList.remove("open");
+            menu.style.display = "none";
+        }
     });
 });
