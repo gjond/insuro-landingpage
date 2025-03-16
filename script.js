@@ -1,8 +1,11 @@
+let deferredPrompt;
+
 document.addEventListener("DOMContentLoaded", function () {
     const menuToggle = document.querySelector(".menu-toggle");
     const menu = document.querySelector("nav ul");
     const form = document.getElementById("signup-form");
     const successMessage = document.getElementById("success-message");
+    const installButton = document.getElementById("install-button");
 
     // === HAMBURGER-MENÜ FIX ===
     menuToggle.addEventListener("click", function () {
@@ -43,10 +46,27 @@ document.addEventListener("DOMContentLoaded", function () {
             alert("Ein Fehler ist aufgetreten. Bitte versuche es erneut.");
         }
     });
-});
 
-if ("serviceWorker" in navigator) {
-    navigator.serviceWorker.register("/service-worker.js")
-        .then(() => console.log("Service Worker registriert!"))
-        .catch(error => console.log("Service Worker Registrierung fehlgeschlagen:", error));
-}
+    // === PWA INSTALLATIONSBUTTON ===
+    window.addEventListener("beforeinstallprompt", (event) => {
+        event.preventDefault();
+        deferredPrompt = event;
+
+        // Button anzeigen, wenn die PWA installierbar ist
+        installButton.style.display = "block";
+
+        installButton.addEventListener("click", () => {
+            deferredPrompt.prompt(); // Installationsdialog anzeigen
+
+            deferredPrompt.userChoice.then((choiceResult) => {
+                if (choiceResult.outcome === "accepted") {
+                    console.log("User hat die App installiert!");
+                    installButton.style.display = "none"; // Button ausblenden nach Installation
+                } else {
+                    console.log("User hat die Installation abgelehnt.");
+                }
+                deferredPrompt = null;
+            });
+        });
+    });
+});
