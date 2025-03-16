@@ -1,6 +1,8 @@
 let deferredPrompt;
 
 document.addEventListener("DOMContentLoaded", function () {
+    console.log("✅ DOM wurde geladen!");
+
     const menuToggle = document.querySelector(".menu-toggle");
     const menu = document.querySelector("nav ul");
     const form = document.getElementById("signup-form");
@@ -8,86 +10,103 @@ document.addEventListener("DOMContentLoaded", function () {
     const installButton = document.getElementById("install-button");
 
     // === HAMBURGER-MENÜ FIX ===
-    menuToggle.addEventListener("click", function () {
-        menu.classList.toggle("open");
-        menuToggle.classList.toggle("open"); // X-Animation aktivieren
-    });
-
-    // Menü schließen, wenn ein Link angeklickt wird
-    document.querySelectorAll("nav ul li a").forEach(link => {
-        link.addEventListener("click", function () {
-            menu.classList.remove("open");
-            menuToggle.classList.remove("open");
+    if (menuToggle && menu) {
+        menuToggle.addEventListener("click", function () {
+            menu.classList.toggle("open");
+            menuToggle.classList.toggle("open");
         });
-    });
+
+        // Menü schließen, wenn ein Link angeklickt wird
+        document.querySelectorAll("nav ul li a").forEach(link => {
+            link.addEventListener("click", function () {
+                menu.classList.remove("open");
+                menuToggle.classList.remove("open");
+            });
+        });
+    } else {
+        console.log("⚠ Hamburger-Menü-Elemente nicht gefunden!");
+    }
 
     // === FORMULAR-ANMELDUNG OHNE WEITERLEITUNG ===
-    form.addEventListener("submit", async function (event) {
-        event.preventDefault(); // Verhindert Seiten-Neuladen
+    if (form) {
+        form.addEventListener("submit", async function (event) {
+            event.preventDefault();
+            console.log("✅ Formular wurde gesendet!");
 
-        const formData = new FormData(form);
+            const formData = new FormData(form);
 
-        try {
-            const response = await fetch(form.action, {
-                method: form.method,
-                body: formData,
-                headers: { "Accept": "application/json" }
-            });
+            try {
+                const response = await fetch(form.action, {
+                    method: form.method,
+                    body: formData,
+                    headers: { "Accept": "application/json" }
+                });
 
-            if (response.ok) {
-                form.reset(); // Löscht die Eingabe
-                successMessage.style.display = "block"; // Zeigt die Erfolgsnachricht an
-                setTimeout(() => { successMessage.style.display = "none"; }, 5000); // Nach 5 Sekunden ausblenden
-            } else {
-                alert("Fehler: Anmeldung konnte nicht gesendet werden.");
+                if (response.ok) {
+                    form.reset();
+                    successMessage.style.display = "block";
+                    setTimeout(() => { successMessage.style.display = "none"; }, 5000);
+                    console.log("✅ Anmeldung erfolgreich!");
+                } else {
+                    alert("❌ Fehler: Anmeldung konnte nicht gesendet werden.");
+                }
+            } catch (error) {
+                console.error("❌ Fehler:", error);
+                alert("Ein Fehler ist aufgetreten. Bitte versuche es erneut.");
             }
-        } catch (error) {
-            console.error("Fehler:", error);
-            alert("Ein Fehler ist aufgetreten. Bitte versuche es erneut.");
-        }
-    });
+        });
+    } else {
+        console.log("⚠ Formular nicht gefunden!");
+    }
 
-    // === PWA INSTALLATIONSBUTTON ===
+    // === PWA INSTALLATIONSBUTTON FIX ===
     window.addEventListener("beforeinstallprompt", (event) => {
+        console.log("✅ beforeinstallprompt wurde ausgelöst!");
         event.preventDefault();
         deferredPrompt = event;
 
-        // Button anzeigen, wenn die PWA installierbar ist
-        installButton.style.display = "block";
+        // Button anzeigen
+        if (installButton) {
+            installButton.style.display = "block";
 
-        installButton.addEventListener("click", () => {
-            deferredPrompt.prompt(); // Installationsdialog anzeigen
+            installButton.addEventListener("click", () => {
+                deferredPrompt.prompt();
 
-            deferredPrompt.userChoice.then((choiceResult) => {
-                if (choiceResult.outcome === "accepted") {
-                    console.log("User hat die App installiert!");
-                    installButton.style.display = "none"; // Button ausblenden nach Installation
-                } else {
-                    console.log("User hat die Installation abgelehnt.");
-                }
-                deferredPrompt = null;
-            });
-        });
-    });
-});
-if ("serviceWorker" in navigator) {
-    navigator.serviceWorker.register("/service-worker.js").then((registration) => {
-        console.log("✅ Service Worker registriert:", registration);
-
-        // Überprüfe, ob es eine neue Version gibt
-        registration.onupdatefound = () => {
-            const installingWorker = registration.installing;
-            installingWorker.onstatechange = () => {
-                if (installingWorker.state === "installed") {
-                    console.log("✅ Neue Version verfügbar!");
-                    if (navigator.serviceWorker.controller) {
-                        alert("🔄 Neue Version verfügbar! Lade die Seite neu.");
+                deferredPrompt.userChoice.then((choiceResult) => {
+                    if (choiceResult.outcome === "accepted") {
+                        console.log("✅ User hat die App installiert!");
+                        installButton.style.display = "none";
+                    } else {
+                        console.log("❌ User hat die Installation abgelehnt.");
                     }
-                }
-            };
-        };
-    }).catch((error) => {
-        console.log("❌ Service Worker Fehler:", error);
+                    deferredPrompt = null;
+                });
+            });
+        } else {
+            console.log("⚠ Installationsbutton nicht gefunden!");
+        }
     });
-}
 
+    // === SERVICE WORKER REGISTRIEREN ===
+    if ("serviceWorker" in navigator) {
+        navigator.serviceWorker.register("/service-worker.js")
+            .then((registration) => {
+                console.log("✅ Service Worker registriert:", registration);
+
+                // Überprüfen, ob eine neue Version verfügbar ist
+                registration.onupdatefound = () => {
+                    const installingWorker = registration.installing;
+                    installingWorker.onstatechange = () => {
+                        if (installingWorker.state === "installed") {
+                            console.log("✅ Neue Version erkannt!");
+                            if (navigator.serviceWorker.controller) {
+                                alert("🔄 Neue Version verfügbar! Bitte die Seite neu laden.");
+                            }
+                        }
+                    };
+                };
+            }).catch((error) => {
+                console.log("❌ Service Worker Fehler:", error);
+            });
+    }
+});
