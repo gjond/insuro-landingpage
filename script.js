@@ -70,3 +70,24 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     });
 });
+if ("serviceWorker" in navigator) {
+    navigator.serviceWorker.register("/service-worker.js").then((registration) => {
+        console.log("✅ Service Worker registriert:", registration);
+
+        // Überprüfe, ob es eine neue Version gibt
+        registration.onupdatefound = () => {
+            const installingWorker = registration.installing;
+            installingWorker.onstatechange = () => {
+                if (installingWorker.state === "installed") {
+                    console.log("✅ Neue Version verfügbar!");
+                    if (navigator.serviceWorker.controller) {
+                        alert("🔄 Neue Version verfügbar! Lade die Seite neu.");
+                    }
+                }
+            };
+        };
+    }).catch((error) => {
+        console.log("❌ Service Worker Fehler:", error);
+    });
+}
+
