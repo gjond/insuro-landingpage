@@ -59,15 +59,22 @@
         </div>
     </section>
 
-    <!-- Beta-Anmeldung mit animierten Feldern -->
-    <section id="beta" class="signup-section">
-        <h2>Jetzt Beta-Zugang sichern</h2>
-        <p>Teste Insuro als einer der Ersten & profitiere von exklusiven Vorteilen.</p>
-        <form action="https://formspree.io/f/DEIN-FORM-ID" method="POST">
-            <input type="email" name="email" placeholder="Deine E-Mail-Adresse" required>
-            <button type="submit">Anmelden</button>
-        </form>
-    </section>
+<!-- Beta-Anmeldung -->
+<section id="beta" class="signup-section">
+    <h2>Jetzt Beta-Zugang sichern</h2>
+    <p>Teste Insuro als einer der Ersten & profitiere von exklusiven Vorteilen.</p>
+    
+    <form id="signup-form" action="https://formspree.io/f/xvgkgaev" method="POST">
+        <input type="email" name="email" id="email" placeholder="Deine E-Mail-Adresse" required>
+        <button type="submit">Anmelden</button>
+    </form>
+
+    <!-- Erfolgsnachricht (wird per JavaScript ein- und ausgeblendet) -->
+    <p id="success-message" style="display: none; color: green; font-weight: bold; margin-top: 15px;">
+        🎉 Danke! Deine Anmeldung war erfolgreich. 
+    </p>
+</section>
+
 
     <footer>
         <p>© 2025 Insuro. Alle Rechte vorbehalten.</p>
