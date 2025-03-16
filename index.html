@@ -11,24 +11,23 @@
 
     <!-- Header mit Logo -->
     <header>
-    <img src="image.png" alt="Insuro Logo" class="logo">
+        <img src="image.png" alt="Insuro Logo" class="logo">
 
-    <!-- Hamburger Menü Button -->
-    <div class="menu-toggle">
-        <div class="bar"></div>
-        <div class="bar"></div>
-        <div class="bar"></div>
-    </div>
+        <!-- Hamburger Menü Button -->
+        <div class="menu-toggle">
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+        </div>
 
-    <nav>
-        <ul>
-            <li><a href="#features">Features</a></li>
-            <li><a href="#beta">Beta-Test</a></li>
-            <li><a href="#kontakt">Kontakt</a></li>
-        </ul>
-    </nav>
-</header>
-
+        <nav>
+            <ul>
+                <li><a href="#features">Features</a></li>
+                <li><a href="#beta">Beta-Test</a></li>
+                <li><a href="#kontakt">Kontakt</a></li>
+            </ul>
+        </nav>
+    </header>
 
     <!-- Hero Section mit animiertem Text -->
     <section class="hero">
@@ -56,42 +55,39 @@
         </div>
     </section>
 
-  <!-- Video Sektion -->
-<section class="video-section">
-    <h2>🎥 Wie funktioniert insuro?</h2>
-    <div class="video-container">
-        <iframe width="560" height="315" src="video" 
-                frameborder="0" allowfullscreen>
-        </iframe>
-    </div>
-</section>
+    <!-- Video Sektion mit Platzhalter -->
+    <section class="video-section">
+        <h2>🎥 Wie funktioniert insuro?</h2>
+        <div class="video-container">
+            <div class="video-placeholder">
+                <p>📹 Video folgt in Kürze</p>
+            </div>
+        </div>
+    </section>
 
+    <!-- Beta-Anmeldung -->
+    <section id="beta" class="signup-section">
+        <h2>Jetzt Beta-Zugang sichern</h2>
+        <p>Teste Insuro als einer der Ersten & profitiere von exklusiven Vorteilen.</p>
 
-<!-- Beta-Anmeldung -->
-<section id="beta" class="signup-section">
-    <h2>Jetzt Beta-Zugang sichern</h2>
-    <p>Teste Insuro als einer der Ersten & profitiere von exklusiven Vorteilen.</p>
+        <form id="signup-form" action="https://formspree.io/f/xvgkgaev" method="POST">
+            <input type="email" name="email" id="email" placeholder="Deine E-Mail-Adresse" required>
+            <button type="submit">Anmelden</button>
+        </form>
 
-    <form id="signup-form" action="https://formspree.io/f/xvgkgaev" method="POST">
-        <input type="email" name="email" id="email" placeholder="Deine E-Mail-Adresse" required>
-        <button type="submit">Anmelden</button>
-    </form>
+        <!-- Erfolgsnachricht -->
+        <p id="success-message" style="display: none; font-weight: bold; color: green;">
+            🎉 Danke! Deine Anmeldung war erfolgreich.
+        </p>
+    </section>
 
-    <!-- Erfolgsnachricht -->
-    <p id="success-message" style="display: none; font-weight: bold; color: green;">
-        🎉 Danke! Deine Anmeldung war erfolgreich.
-    </p>
-</section>
-
-
-
-
-  <footer>
-    <p>© 2025 Insuro. Alle Rechte vorbehalten.</p>
-    <p style="font-size: 0.9rem; color: gray;">
-        Diese Seite ist ein Testprojekt zur Evaluierung eines Konzepts. Es handelt sich nicht um ein reales Produkt oder Unternehmen.
-    </p>
-</footer>
+    <!-- Footer -->
+    <footer>
+        <p>© 2025 Insuro. Alle Rechte vorbehalten.</p>
+        <p style="font-size: 0.9rem; color: gray;">
+            Diese Seite ist ein Testprojekt zur Evaluierung eines Konzepts. Es handelt sich nicht um ein reales Produkt oder Unternehmen.
+        </p>
+    </footer>
 
 </body>
 </html>
