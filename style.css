@@ -1,8 +1,8 @@
 /* Allgemeine Einstellungen */
 body {
     font-family: 'Arial', sans-serif;
-    background: #f8f9fa;  /* Heller Hintergrund */
-    color: #333;  /* Dunkelgrauer Text für gute Lesbarkeit */
+    background: #f8f9fa;
+    color: #333;
     margin: 0;
     padding: 0;
     text-align: center;
@@ -14,14 +14,19 @@ header {
     justify-content: space-between;
     align-items: center;
     padding: 20px;
-    background: white;  /* Weißer Header */
+    background: white;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
 }
 
+/* Logo */
 .logo {
     width: 120px;
 }
 
+/* Navigation */
 nav ul {
     list-style: none;
     display: flex;
@@ -34,27 +39,27 @@ nav ul li {
 }
 
 nav ul li a {
-    color: #007BFF;  /* Blau für moderne Akzente */
+    color: #007BFF;
     text-decoration: none;
     font-weight: bold;
     transition: color 0.3s ease;
 }
 
 nav ul li a:hover {
-    color: #0056b3;  /* Dunkleres Blau beim Hover */
+    color: #0056b3;
 }
 
 /* Hero Section */
 .hero {
-    padding: 80px 20px;
-    background: linear-gradient(135deg, #e3f2fd, #ffffff); /* Weicher Farbverlauf */
+    padding: 60px 20px;
+    background: linear-gradient(135deg, #e3f2fd, #ffffff);
     text-align: center;
     border-radius: 10px;
 }
 
 .hero h1 {
-    font-size: 3rem;
-    color: #0056b3;  /* Dunkelblau für mehr Kontrast */
+    font-size: 2.5rem;
+    color: #0056b3;
 }
 
 .hero .highlight {
@@ -117,6 +122,12 @@ nav ul li a:hover {
     margin: auto;
 }
 
+iframe {
+    width: 100%;
+    max-width: 560px;
+    height: auto;
+}
+
 /* Signup */
 .signup-section {
     padding: 60px 20px;
@@ -129,6 +140,8 @@ nav ul li a:hover {
     border-radius: 5px;
     margin-right: 10px;
     outline: none;
+    width: 80%;
+    max-width: 300px;
 }
 
 .signup-section button {
@@ -150,4 +163,59 @@ footer {
     padding: 20px;
     background: #e3f2fd;
     color: #333;
+}
+
+/* ========== MOBILE OPTIMIERUNG ========== */
+@media screen and (max-width: 768px) {
+    /* Header */
+    header {
+        flex-direction: column;
+        padding: 15px;
+    }
+
+    nav ul {
+        flex-direction: column;
+        gap: 10px;
+        padding: 10px;
+    }
+
+    nav ul li {
+        display: block;
+    }
+
+    /* Hero */
+    .hero {
+        padding: 40px 15px;
+    }
+
+    .hero h1 {
+        font-size: 2rem;
+    }
+
+    /* Features */
+    .feature-grid {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .feature-item {
+        width: 90%;
+        max-width: 300px;
+    }
+
+    /* Video */
+    .video-container {
+        max-width: 90%;
+    }
+
+    /* Signup */
+    .signup-section input {
+        width: 100%;
+        max-width: 300px;
+    }
+
+    .signup-section button {
+        width: 100%;
+        max-width: 300px;
+    }
 }
