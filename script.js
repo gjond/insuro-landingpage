@@ -1,22 +1,23 @@
-function toggleMenu() {
-    var menu = document.getElementById("menu");
+document.addEventListener("DOMContentLoaded", function() {
+    const form = document.getElementById("signup-form");
+    const successMessage = document.getElementById("success-message");
 
-    // Menü öffnen/schließen mit Animation
-    if (menu.classList.contains("open")) {
-        menu.classList.remove("open");
-    } else {
-        menu.classList.add("open");
-    }
-}
+    form.addEventListener("submit", async function(event) {
+        event.preventDefault(); // Verhindert Standard-Seitenwechsel
 
-// Menü automatisch schließen, wenn ein Link angeklickt wird
-document.querySelectorAll("#menu a").forEach(link => {
-    link.addEventListener("click", function() {
-        document.getElementById("menu").classList.remove("open");
+        const formData = new FormData(form);
+
+        // Sende die Daten an Formspree
+        const response = await fetch(form.action, {
+            method: form.method,
+            body: formData,
+            headers: { 'Accept': 'application/json' }
+        });
+
+        if (response.ok) {
+            form.reset(); // Setzt das Eingabefeld zurück
+            successMessage.style.display = "block"; // Zeigt die Erfolgsmeldung an
+            setTimeout(() => { successMessage.style.display = "none"; }, 5000); // Blendet die Meldung nach 5 Sek. aus
+        }
     });
-});
-
-// Menü schließen, wenn man nach unten scrollt
-window.addEventListener("scroll", function() {
-    document.getElementById("menu").classList.remove("open");
 });
