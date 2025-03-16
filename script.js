@@ -59,7 +59,14 @@ document.addEventListener("DOMContentLoaded", function () {
         console.log("⚠ Formular nicht gefunden!");
     }
 
-    // === PWA INSTALLATIONSBUTTON FIX ===
+    let deferredPrompt;
+
+document.addEventListener("DOMContentLoaded", function () {
+    console.log("✅ DOM wurde geladen!");
+
+    const installButton = document.getElementById("install-button");
+
+    // === TEST: beforeinstallprompt wird getriggert? ===
     window.addEventListener("beforeinstallprompt", (event) => {
         console.log("✅ beforeinstallprompt wurde ausgelöst!");
         event.preventDefault();
@@ -86,6 +93,14 @@ document.addEventListener("DOMContentLoaded", function () {
             console.log("⚠ Installationsbutton nicht gefunden!");
         }
     });
+
+    // === TEST: Button existiert? ===
+    if (!installButton) {
+        console.log("❌ Kein Installationsbutton gefunden!");
+    } else {
+        console.log("✅ Installationsbutton existiert!");
+    }
+});
 
     // === SERVICE WORKER REGISTRIEREN ===
     if ("serviceWorker" in navigator) {
