@@ -1,19 +1,21 @@
 document.addEventListener("DOMContentLoaded", function () {
     const menuToggle = document.querySelector(".menu-toggle");
     const menu = document.querySelector("nav ul");
-    const form = document.getElementById("signup-form");
-    const successMessage = document.getElementById("success-message");
 
-    // === Hamburger-Menü-Funktionalität ===
     menuToggle.addEventListener("click", function () {
-        if (menu.classList.contains("open")) {
-            menu.classList.remove("open");
-            menu.style.display = "none";
-        } else {
-            menu.classList.add("open");
-            menu.style.display = "flex";
-        }
+        menu.classList.toggle("open");
+        menuToggle.classList.toggle("open"); // Aktualisiert das "X"-Symbol
     });
+
+    // Menü schließen, wenn ein Link geklickt wird
+    document.querySelectorAll("nav ul li a").forEach(link => {
+        link.addEventListener("click", function () {
+            menu.classList.remove("open");
+            menuToggle.classList.remove("open");
+        });
+    });
+});
+
 
     // === Formular absenden ohne Weiterleitung ===
     form.addEventListener("submit", async function (event) {
