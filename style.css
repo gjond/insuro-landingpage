@@ -179,15 +179,16 @@ footer {
     color: #333;
 }
 
-/* ========== HAMBURGER-MENÜ (VERBESSERT) ========== */
+/* ========== HAMBURGER-MENÜ (SAFARI FIX) ========== */
 .menu-toggle {
     display: none;
     font-size: 2rem;
     cursor: pointer;
     padding: 10px;
+    user-select: none;
 }
 
-/* Navigation */
+/* Mobile Navigation */
 @media screen and (max-width: 768px) {
     .menu-toggle {
         display: block;
@@ -198,7 +199,7 @@ footer {
     }
 
     nav ul {
-        display: none;
+        display: none; /* Standardmäßig versteckt */
         flex-direction: column;
         position: absolute;
         top: 60px;
@@ -208,12 +209,11 @@ footer {
         border-radius: 5px;
         box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
         width: 150px;
-        transition: all 0.3s ease-in-out;
-        opacity: 0;
+        transition: opacity 0.3s ease-in-out;
     }
 
     nav ul.open {
-        display: flex;
+        display: flex !important; /* Wichtige Änderung für Safari */
         opacity: 1;
     }
 
