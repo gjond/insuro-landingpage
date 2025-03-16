@@ -1,11 +1,8 @@
-document.addEventListener("DOMContentLoaded", function() {
-    const ctaButton = document.querySelector(".cta-button");
-    
-    ctaButton.addEventListener("mouseover", function() {
-        ctaButton.style.transform = "scale(1.1)";
-    });
-
-    ctaButton.addEventListener("mouseout", function() {
-        ctaButton.style.transform = "scale(1)";
-    });
-});
+function toggleMenu() {
+    var menu = document.getElementById("menu");
+    if (menu.style.display === "block") {
+        menu.style.display = "none";
+    } else {
+        menu.style.display = "block";
+    }
+}
