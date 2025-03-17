@@ -58,8 +58,9 @@ document.addEventListener("DOMContentLoaded", function () {
     } else {
         console.log("⚠ Formular nicht gefunden!");
     }
+});
 
-    // === PWA INSTALLATIONSBUTTON FIX ===
+// === PWA INSTALLATIONSBUTTON FIX ===
 window.addEventListener("beforeinstallprompt", (event) => {
     console.log("✅ beforeinstallprompt wurde ausgelöst!");
     event.preventDefault();
@@ -88,28 +89,26 @@ window.addEventListener("beforeinstallprompt", (event) => {
         console.log("⚠ Installationsbutton nicht gefunden!");
     }
 });
-});
 
-    // === SERVICE WORKER REGISTRIEREN ===
-    if ("serviceWorker" in navigator) {
-        navigator.serviceWorker.register("/service-worker.js")
-            .then((registration) => {
-                console.log("✅ Service Worker registriert:", registration);
+// === SERVICE WORKER REGISTRIEREN ===
+if ("serviceWorker" in navigator) {
+    navigator.serviceWorker.register("/service-worker.js")
+        .then((registration) => {
+            console.log("✅ Service Worker registriert:", registration);
 
-                // Überprüfen, ob eine neue Version verfügbar ist
-                registration.onupdatefound = () => {
-                    const installingWorker = registration.installing;
-                    installingWorker.onstatechange = () => {
-                        if (installingWorker.state === "installed") {
-                            console.log("✅ Neue Version erkannt!");
-                            if (navigator.serviceWorker.controller) {
-                                alert("🔄 Neue Version verfügbar! Bitte die Seite neu laden.");
-                            }
+            // Überprüfen, ob eine neue Version verfügbar ist
+            registration.onupdatefound = () => {
+                const installingWorker = registration.installing;
+                installingWorker.onstatechange = () => {
+                    if (installingWorker.state === "installed") {
+                        console.log("✅ Neue Version erkannt!");
+                        if (navigator.serviceWorker.controller) {
+                            alert("🔄 Neue Version verfügbar! Bitte die Seite neu laden.");
                         }
-                    };
+                    }
                 };
-            }).catch((error) => {
-                console.log("❌ Service Worker Fehler:", error);
-            });
-    }
-});
+            };
+        }).catch((error) => {
+            console.log("❌ Service Worker Fehler:", error);
+        });
+}
