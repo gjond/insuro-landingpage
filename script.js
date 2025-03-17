@@ -60,14 +60,14 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     // === PWA INSTALLATIONSBUTTON FIX ===
-  window.addEventListener("beforeinstallprompt", (event) => {
+window.addEventListener("beforeinstallprompt", (event) => {
     console.log("✅ beforeinstallprompt wurde ausgelöst!");
     event.preventDefault();
     deferredPrompt = event;
 
     const installButton = document.getElementById("install-button");
     if (installButton) {
-        console.log("✅ Installationsbutton gefunden und sichtbar gemacht!");
+        console.log("✅ Installationsbutton gefunden!");
         installButton.style.display = "block";
 
         installButton.addEventListener("click", () => {
@@ -77,7 +77,7 @@ document.addEventListener("DOMContentLoaded", function () {
             deferredPrompt.userChoice.then((choiceResult) => {
                 if (choiceResult.outcome === "accepted") {
                     console.log("✅ Benutzer hat die App installiert!");
-                    installButton.style.display = "none"; // Button nach Installation ausblenden
+                    installButton.style.display = "none";
                 } else {
                     console.log("❌ Benutzer hat die Installation abgelehnt.");
                 }
@@ -87,6 +87,7 @@ document.addEventListener("DOMContentLoaded", function () {
     } else {
         console.log("⚠ Installationsbutton nicht gefunden!");
     }
+});
 });
 
     // === SERVICE WORKER REGISTRIEREN ===
