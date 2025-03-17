@@ -1,6 +1,6 @@
 /* Allgemeine Einstellungen */
 body {
-    font-family: 'Arial', sans-serif;
+    font-family: 'Inter', sans-serif;
     background: #f8f9fa;
     color: #333;
     margin: 0;
@@ -23,7 +23,7 @@ header {
 
 /* Logo */
 .logo {
-    width: 120px;
+    width: 140px;
 }
 
 /* Navigation */
@@ -43,6 +43,7 @@ nav ul li a {
     text-decoration: none;
     font-weight: bold;
     transition: color 0.3s ease;
+    font-size: 1.1rem;
 }
 
 nav ul li a:hover {
@@ -51,23 +52,49 @@ nav ul li a:hover {
 
 /* Hero Section */
 .hero {
-    padding: 60px 20px;
-    background: linear-gradient(135deg, #e3f2fd, #ffffff);
+    padding: 80px 20px;
+    background: linear-gradient(135deg, #007BFF, #00AFFF);
     text-align: center;
     border-radius: 10px;
+    color: white;
+    animation: fadeIn 1s ease-in-out;
 }
 
 .hero h1 {
-    font-size: 2.5rem;
-    color: #0056b3;
+    font-size: 3rem;
+    color: white;
 }
 
 .hero .highlight {
-    color: #007BFF;
+    color: yellow;
+    font-weight: bold;
 }
 
 /* CTA Button */
 .cta-button {
+    background: #FF8C00;
+    color: white;
+    padding: 15px 30px;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 8px;
+    font-size: 1.2rem;
+    transition: background 0.3s ease, transform 0.2s ease;
+    display: inline-block;
+    margin-top: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    border: none;
+    cursor: pointer;
+}
+
+.cta-button:hover {
+    background: #E07B00;
+    transform: scale(1.05);
+}
+
+/* Installationsbutton */
+#install-button {
+    display: block;
     background: #007BFF;
     color: white;
     padding: 15px 25px;
@@ -75,13 +102,27 @@ nav ul li a:hover {
     font-weight: bold;
     border-radius: 5px;
     transition: background 0.3s ease, transform 0.2s ease;
-    display: inline-block;
-    margin-top: 20px;
+    border: none;
+    cursor: pointer;
+    margin-top: 30px;
+    font-size: 1.1rem;
+    animation: fadeInUp 0.8s ease-out;
 }
 
-.cta-button:hover {
+#install-button:hover {
     background: #0056b3;
-    transform: scale(1.05);
+    transform: scale(1.08);
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
 }
 
 /* Features */
@@ -111,110 +152,11 @@ nav ul li a:hover {
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
 
-/* Video Section */
-.video-section {
-    padding: 50px 20px;
-    background: #f1f1f1;
-}
-
-.video-container {
-    position: relative;
-    max-width: 800px;
-    margin: auto;
-    padding: 10px;
-}
-
-.video-container iframe {
-    width: 100%;
-    height: auto;
-    aspect-ratio: 16 / 9;
-    border-radius: 10px;
-}
-
-/* Signup */
-.signup-section {
-    padding: 60px 20px;
-    background: #ffffff;
-}
-
-.signup-section input {
-    padding: 10px;
-    border: 1px solid #007BFF;
-    border-radius: 5px;
-    margin-right: 10px;
-    outline: none;
-    width: 80%;
-    max-width: 300px;
-}
-
-.signup-section button {
-    background: #007BFF;
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background 0.3s ease;
-}
-
-.signup-section button:hover {
-    background: #0056b3;
-}
-
-/* Erfolgsnachricht */
-#success-message {
-    font-size: 1.2rem;
-    background: #d4edda;
-    color: #155724;
-    padding: 15px;
-    border-radius: 5px;
-    margin-top: 20px;
-    display: none;
-    animation: fadeIn 0.5s ease-in-out;
-}
-
-/* Animation für Erfolgsmeldung */
-@keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
-}
-
-/* Footer */
-footer {
-    padding: 20px;
-    background: #e3f2fd;
-    color: #333;
-}
-
-/* ========== HAMBURGER-MENÜ FIX ========== */
-.menu-toggle {
-    display: none;
-    flex-direction: column;
-    justify-content: space-between;
-    width: 35px;
-    height: 30px;
-    cursor: pointer;
-    position: absolute;
-    top: 15px;
-    right: 20px;
-    z-index: 1001;
-}
-
-.bar {
-    background-color: #007BFF;
-    height: 4px;
-    width: 100%;
-    border-radius: 5px;
-    transition: 0.4s;
-}
-
 /* Mobile Navigation */
 @media screen and (max-width: 768px) {
-    .menu-toggle {
-        display: flex;
-    }
-
     nav ul {
+        display: none;
+        flex-direction: column;
         position: absolute;
         top: 60px;
         right: 10px;
@@ -222,83 +164,21 @@ footer {
         padding: 15px;
         border-radius: 5px;
         box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-        width: 150px;
-        opacity: 0;
-        transform: translateY(-10px);
-        transition: opacity 0.3s ease, transform 0.3s ease;
-        display: none;
-        flex-direction: column;  /* <<< Fix für Mobile */
-        gap: 10px; /* Abstand zwischen den Links */
     }
 
     nav ul.open {
         display: flex;
-        opacity: 1;
-        transform: translateY(0);
     }
 
-    nav ul li {
-        display: block; /* <<< Fix für Mobile */
-        text-align: center;
-        width: 100%;
-        padding: 10px 0;
-    }
-
-    nav ul li a {
-        color: #007BFF;
-        font-size: 1.2rem;
-        text-decoration: none;
-        display: block; /* <<< Fix für Mobile */
-        width: 100%;
-        padding: 10px;
+    .menu-toggle {
+        display: flex;
     }
 }
 
-/* Video Platzhalter */
-.video-container {
-    max-width: 800px;
-    margin: auto;
-    text-align: center;
+/* Footer */
+footer {
     padding: 20px;
-}
-
-.video-placeholder {
-    width: 100%;
-    height: 200px;
-    background: #ddd;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 1.2rem;
-    font-weight: bold;
-    color: #666;
-    border-radius: 10px;
-}
-
-/* PWA Installationsbutton */
-.pwa-install {
-    text-align: center;
-    margin: 20px 0;
-}
-
-#install-button {
-    display: block; /* TEST: Zeigt den Button immer an */
     background: #007BFF;
     color: white;
-    padding: 15px 25px;
-    text-decoration: none;
-    font-weight: bold;
-    border-radius: 5px;
-    transition: background 0.3s ease, transform 0.2s ease;
-    border: none;
-    cursor: pointer;
+    font-size: 1rem;
 }
-
-
-
-#install-button:hover {
-    background: #0056b3;
-    transform: scale(1.05);
-}
-
-
