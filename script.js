@@ -58,6 +58,14 @@ document.addEventListener("DOMContentLoaded", function () {
     } else {
         console.log("⚠ Formular nicht gefunden!");
     }
+
+    // === INSTALLATIONS-BUTTON SOFORT SICHTBAR MACHEN ===
+    if (installButton) {
+        console.log("✅ Installationsbutton wird sofort angezeigt.");
+        installButton.style.display = "block";
+    } else {
+        console.log("⚠ Installationsbutton nicht gefunden!");
+    }
 });
 
 // === PWA INSTALLATIONSBUTTON FIX ===
