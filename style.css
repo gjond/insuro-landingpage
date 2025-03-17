@@ -282,7 +282,7 @@ footer {
 }
 
 #install-button {
-    display: none;
+    display: block; /* TEST: Zeigt den Button immer an */
     background: #007BFF;
     color: white;
     padding: 15px 25px;
@@ -293,6 +293,7 @@ footer {
     border: none;
     cursor: pointer;
 }
+
 
 #install-button:hover {
     background: #0056b3;
