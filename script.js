@@ -60,32 +60,34 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     // === PWA INSTALLATIONSBUTTON FIX ===
-    window.addEventListener("beforeinstallprompt", (event) => {
-        console.log("✅ beforeinstallprompt wurde ausgelöst!");
-        event.preventDefault();
-        deferredPrompt = event;
+  window.addEventListener("beforeinstallprompt", (event) => {
+    console.log("✅ beforeinstallprompt wurde ausgelöst!");
+    event.preventDefault();
+    deferredPrompt = event;
 
-        // Button anzeigen
-        if (installButton) {
-            installButton.style.display = "block";
+    const installButton = document.getElementById("install-button");
+    if (installButton) {
+        console.log("✅ Installationsbutton gefunden und sichtbar gemacht!");
+        installButton.style.display = "block";
 
-            installButton.addEventListener("click", () => {
-                deferredPrompt.prompt();
+        installButton.addEventListener("click", () => {
+            console.log("📱 Benutzer klickt auf den Installationsbutton");
+            deferredPrompt.prompt();
 
-                deferredPrompt.userChoice.then((choiceResult) => {
-                    if (choiceResult.outcome === "accepted") {
-                        console.log("✅ User hat die App installiert!");
-                        installButton.style.display = "none";
-                    } else {
-                        console.log("❌ User hat die Installation abgelehnt.");
-                    }
-                    deferredPrompt = null;
-                });
+            deferredPrompt.userChoice.then((choiceResult) => {
+                if (choiceResult.outcome === "accepted") {
+                    console.log("✅ Benutzer hat die App installiert!");
+                    installButton.style.display = "none"; // Button nach Installation ausblenden
+                } else {
+                    console.log("❌ Benutzer hat die Installation abgelehnt.");
+                }
+                deferredPrompt = null;
             });
-        } else {
-            console.log("⚠ Installationsbutton nicht gefunden!");
-        }
-    });
+        });
+    } else {
+        console.log("⚠ Installationsbutton nicht gefunden!");
+    }
+});
 
     // === SERVICE WORKER REGISTRIEREN ===
     if ("serviceWorker" in navigator) {
