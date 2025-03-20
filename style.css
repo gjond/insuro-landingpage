@@ -112,9 +112,11 @@ nav ul li a:hover {
 }
 
 /* Video Section */
+
 .video-section {
     padding: 50px 20px;
-    background: #f1f1f1;
+    background: #f9f9f9;
+    text-align: center;
 }
 
 .video-container {
@@ -124,6 +126,11 @@ nav ul li a:hover {
     padding: 10px;
 }
 
+.video-container video {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+}
 /* Stellt sicher, dass das Video responsive ist */
 .video-container video {
     width: 100%;
