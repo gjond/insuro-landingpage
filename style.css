@@ -133,35 +133,55 @@ nav ul li a:hover {
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
 
-/* Signup */
+
+/* Beta-Anmeldung */
 .signup-section {
     padding: 60px 20px;
     background: #ffffff;
+    text-align: center;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    max-width: 500px;
+    margin: auto;
+}
+
+.signup-section h2 {
+    font-size: 1.8rem;
+    margin-bottom: 10px;
+}
+
+.signup-section p {
+    font-size: 1rem;
+    color: #666;
+    margin-bottom: 20px;
 }
 
 .signup-section input {
-    padding: 10px;
+    padding: 12px;
     border: 1px solid #007BFF;
     border-radius: 5px;
-    margin-right: 10px;
-    outline: none;
     width: 80%;
-    max-width: 300px;
+    max-width: 350px;
+    outline: none;
+    font-size: 1rem;
+    margin-bottom: 10px;
 }
 
 .signup-section button {
     background: #007BFF;
     color: white;
-    padding: 10px 20px;
+    padding: 12px 20px;
     border: none;
     border-radius: 5px;
     cursor: pointer;
     transition: background 0.3s ease;
+    font-size: 1rem;
 }
 
 .signup-section button:hover {
     background: #0056b3;
 }
+
 
 /* Erfolgsnachricht */
 #success-message {
