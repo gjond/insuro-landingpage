@@ -4,8 +4,8 @@ document.addEventListener("DOMContentLoaded", function () {
     console.log("✅ DOM wurde geladen!");
 
     // Hamburger-Menü-Elemente abrufen
-    const menuToggle = document.querySelector(".menu-toggle");
-    const menu = document.querySelector("nav ul");
+    const menuToggle = document.getElementById("menu-toggle");
+    const menu = document.getElementById("menu");
 
     // Beta-Anmeldeformular abrufen
     const form = document.getElementById("signup-form");
@@ -18,14 +18,29 @@ document.addEventListener("DOMContentLoaded", function () {
     if (menuToggle && menu) {
         menuToggle.addEventListener("click", function () {
             menu.classList.toggle("open");
-            menuToggle.classList.toggle("active");
+
+            // Safari Fix: Toggle opacity
+            if (menu.classList.contains("open")) {
+                menu.style.display = "flex";
+                setTimeout(() => {
+                    menu.style.opacity = "1";
+                }, 10);
+            } else {
+                menu.style.opacity = "0";
+                setTimeout(() => {
+                    menu.style.display = "none";
+                }, 300);
+            }
         });
 
         // Menü schließen, wenn ein Link angeklickt wird
         document.querySelectorAll("nav ul li a").forEach(link => {
             link.addEventListener("click", function () {
                 menu.classList.remove("open");
-                menuToggle.classList.remove("active");
+                menu.style.opacity = "0";
+                setTimeout(() => {
+                    menu.style.display = "none";
+                }, 300);
             });
         });
     } else {
@@ -112,5 +127,11 @@ document.addEventListener("DOMContentLoaded", function () {
             }).catch((error) => {
                 console.log("❌ Service Worker Fehler:", error);
             });
+    }
+
+    // === VIDEO POSTER (FALLBACK FÜR SAFARI) ===
+    const video = document.getElementById("insuro-video");
+    if (video) {
+        video.setAttribute("poster", "video-thumbnail.jpg"); // Stelle sicher, dass dieses Bild existiert
     }
 });
