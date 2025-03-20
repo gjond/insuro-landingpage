@@ -24,18 +24,44 @@ header {
 /* Logo */
 .logo {
     width: 120px;
+    margin-left: 20px; /* Abstand links für bessere Optik */
 }
 
 /* Navigation */
-nav ul {
-    list-style: none;
+nav {
+    flex-grow: 1;
     display: flex;
-    gap: 20px;
-    padding: 0;
+    justify-content: flex-end; /* Menü-Inhalte nach rechts schieben */
 }
 
+nav ul {
+    list-style: none;
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 60px;
+    right: 10px;
+    background: white;
+    padding: 15px;
+    border-radius: 5px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    width: 180px;
+    transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
+    opacity: 0;
+    visibility: hidden;
+    z-index: 1001;
+}
+
+/* Menü anzeigen */
+nav ul.open {
+    display: flex;
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Links im Menü */
 nav ul li {
-    display: inline;
+    margin: 10px 0;
 }
 
 nav ul li a {
@@ -47,6 +73,19 @@ nav ul li a {
 
 nav ul li a:hover {
     color: #0056b3;
+}
+
+/* Hamburger-Button */
+.menu-toggle {
+    font-size: 2rem;
+    cursor: pointer;
+    padding: 10px;
+    background: none;
+    border: none;
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
 }
 
 /* Hero Section */
@@ -131,12 +170,6 @@ nav ul li a:hover {
     height: auto;
     border-radius: 10px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-}
-
-/* Setzt ein Poster-Bild für das Video */
-video {
-    background: url('video-thumbnail.jpg') no-repeat center center;
-    background-size: cover;
 }
 
 /* Beta-Anmeldung */
@@ -230,43 +263,9 @@ footer {
     transform: scale(1.05);
 }
 
-/* Hamburger-Menü */
-.menu-toggle {
-    font-size: 2rem;
-    cursor: pointer;
-    padding: 10px;
-    background: none;
-    border: none;
-    display: block;
-}
-
-nav ul {
-    list-style: none;
-    display: none;
-    flex-direction: column;
-    position: absolute;
-    top: 60px;
-    right: 10px;
-    background: white;
-    padding: 15px;
-    border-radius: 5px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-    width: 150px;
-    transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
-    opacity: 0;
-    visibility: hidden;
-    z-index: 1001;
-}
-
-nav ul.open {
-    display: flex;
-    opacity: 1;
-    visibility: visible;
-}
-
 /* Fix für Safari */
 @supports (-webkit-touch-callout: none) {
     nav ul {
         display: none;
     }
-}
+} 
