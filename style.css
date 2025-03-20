@@ -112,7 +112,6 @@ nav ul li a:hover {
 }
 
 /* Video Section */
-
 .video-section {
     padding: 50px 20px;
     background: #f9f9f9;
@@ -128,18 +127,17 @@ nav ul li a:hover {
 
 .video-container video {
     width: 100%;
-    height: auto;
-    border-radius: 10px;
-}
-/* Stellt sicher, dass das Video responsive ist */
-.video-container video {
-    width: 100%;
     max-width: 560px;
     height: auto;
     border-radius: 10px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
 
+/* Setzt ein Poster-Bild für das Video */
+video {
+    background: url('video-thumbnail.jpg') no-repeat center center;
+    background-size: cover;
+}
 
 /* Beta-Anmeldung */
 .signup-section {
@@ -189,7 +187,6 @@ nav ul li a:hover {
     background: #0056b3;
 }
 
-
 /* Erfolgsnachricht */
 #success-message {
     font-size: 1.2rem;
@@ -216,7 +213,7 @@ footer {
 }
 
 #install-button {
-    display: block;  /* Ändere dies auf block, falls er immer sichtbar sein soll */
+    display: block;
     background: #007BFF;
     color: white;
     padding: 15px 25px;
@@ -233,10 +230,19 @@ footer {
     transform: scale(1.05);
 }
 
-/* Standard-Einstellungen für das Menü */
+/* Hamburger-Menü */
+.menu-toggle {
+    font-size: 2rem;
+    cursor: pointer;
+    padding: 10px;
+    background: none;
+    border: none;
+    display: block;
+}
+
 nav ul {
     list-style: none;
-    display: none; /* Standardmäßig ausgeblendet */
+    display: none;
     flex-direction: column;
     position: absolute;
     top: 60px;
@@ -246,27 +252,19 @@ nav ul {
     border-radius: 5px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
     width: 150px;
-    transition: all 0.3s ease-in-out;
+    transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
     opacity: 0;
+    visibility: hidden;
     z-index: 1001;
 }
 
-/* Sichtbares Menü */
 nav ul.open {
     display: flex;
     opacity: 1;
+    visibility: visible;
 }
 
-/* Hamburger-Button */
-.menu-toggle {
-    font-size: 2rem;
-    cursor: pointer;
-    padding: 10px;
-    background: none;
-    border: none;
-}
-
-/* Falls Safari spezifisch Probleme macht */
+/* Fix für Safari */
 @supports (-webkit-touch-callout: none) {
     nav ul {
         display: none;
