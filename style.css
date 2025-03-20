@@ -232,3 +232,43 @@ footer {
     background: #0056b3;
     transform: scale(1.05);
 }
+
+/* Standard-Einstellungen für das Menü */
+nav ul {
+    list-style: none;
+    display: none; /* Standardmäßig ausgeblendet */
+    flex-direction: column;
+    position: absolute;
+    top: 60px;
+    right: 10px;
+    background: white;
+    padding: 15px;
+    border-radius: 5px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    width: 150px;
+    transition: all 0.3s ease-in-out;
+    opacity: 0;
+    z-index: 1001;
+}
+
+/* Sichtbares Menü */
+nav ul.open {
+    display: flex;
+    opacity: 1;
+}
+
+/* Hamburger-Button */
+.menu-toggle {
+    font-size: 2rem;
+    cursor: pointer;
+    padding: 10px;
+    background: none;
+    border: none;
+}
+
+/* Falls Safari spezifisch Probleme macht */
+@supports (-webkit-touch-callout: none) {
+    nav ul {
+        display: none;
+    }
+}
