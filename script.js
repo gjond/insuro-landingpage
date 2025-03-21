@@ -47,6 +47,16 @@ document.addEventListener("DOMContentLoaded", function () {
         console.log("⚠ Hamburger-Menü nicht gefunden.");
     }
 
+function openSurvey() {
+    document.getElementById("surveyModal").style.display = "block";
+}
+
+function closeSurvey() {
+    document.getElementById("surveyModal").style.display = "none";
+}
+
+
+    
     // === FORMULAR-ANMELDUNG OHNE WEITERLEITUNG ===
     if (form) {
         form.addEventListener("submit", async function (event) {
