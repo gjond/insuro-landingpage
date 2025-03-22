@@ -197,6 +197,10 @@ nav ul li a:hover {
     transform: scale(1.05);
 }
 
+.survey-container {
+    margin-bottom: 60px; /* Abstand nach unten vergrößert */
+}
+
 //* Modal Overlay */
 .modal {
     display: none;
