@@ -1,11 +1,20 @@
 /* Allgemeine Einstellungen */
-body {
+* {
+    box-sizing: border-box;
+}
+
+html, body {
     font-family: 'Arial', sans-serif;
     background: #f8f9fa;
     color: #333;
     margin: 0;
     padding: 0;
     text-align: center;
+    overflow-x: hidden;
+}
+
+body {
+    padding: 0 16px;
 }
 
 /* Header */
@@ -13,7 +22,7 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 20px;
+    padding: 20px 0;
     background: white;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     position: sticky;
@@ -24,14 +33,14 @@ header {
 /* Logo */
 .logo {
     width: 120px;
-    margin-left: 20px; /* Abstand links für bessere Optik */
+    margin-left: 10px;
 }
 
 /* Navigation */
 nav {
     flex-grow: 1;
     display: flex;
-    justify-content: flex-end; /* Menü-Inhalte nach rechts schieben */
+    justify-content: flex-end;
 }
 
 nav ul {
@@ -45,21 +54,18 @@ nav ul {
     padding: 15px;
     border-radius: 5px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-    width: 180px;
-    transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
+    width: 160px;
     opacity: 0;
     visibility: hidden;
     z-index: 1001;
 }
 
-/* Menü anzeigen */
 nav ul.open {
     display: flex;
     opacity: 1;
     visibility: visible;
 }
 
-/* Links im Menü */
 nav ul li {
     margin: 10px 0;
 }
@@ -75,7 +81,7 @@ nav ul li a:hover {
     color: #0056b3;
 }
 
-/* Hamburger-Button */
+/* Hamburger-Menü */
 .menu-toggle {
     font-size: 2rem;
     cursor: pointer;
@@ -83,7 +89,7 @@ nav ul li a:hover {
     background: none;
     border: none;
     position: absolute;
-    right: 20px;
+    right: 16px;
     top: 50%;
     transform: translateY(-50%);
 }
@@ -92,12 +98,11 @@ nav ul li a:hover {
 .hero {
     padding: 60px 20px;
     background: linear-gradient(135deg, #e3f2fd, #ffffff);
-    text-align: center;
     border-radius: 10px;
 }
 
 .hero h1 {
-    font-size: 2.5rem;
+    font-size: 2.2rem;
     color: #0056b3;
 }
 
@@ -125,135 +130,54 @@ nav ul li a:hover {
 
 /* Features */
 .features {
-    padding: 60px 20px;
+    padding: 60px 0;
     background: #ffffff;
 }
 
 .feature-grid {
     display: flex;
-    justify-content: center;
+    flex-direction: column;
     gap: 20px;
-    flex-wrap: wrap;
+    align-items: center;
 }
 
 .feature-item {
     background: #e3f2fd;
     padding: 20px;
     border-radius: 8px;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    width: 250px;
-}
-
-.feature-item:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    max-width: 320px;
+    width: 100%;
 }
 
 /* Video Section */
 .video-section {
-    padding: 50px 20px;
+    padding: 50px 0;
     background: #f9f9f9;
-    text-align: center;
 }
 
 .video-container {
-    position: relative;
-    max-width: 800px;
-    margin: auto;
-    padding: 10px;
+    max-width: 560px;
+    margin: 0 auto;
+    padding: 0 10px;
 }
 
 .video-container video {
     width: 100%;
-    max-width: 560px;
-    height: auto;
     border-radius: 10px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
-/* Umfrage Sektion */
-.survey-container {
-    background: transparent;  /* Entfernt den weißen Hintergrund */
-    border-radius: 0;         /* Keine Abrundung */
-    box-shadow: none;         /* Kein Schatten */
-    max-width: 800px;
-    margin: auto;
-    padding: 10px 0;
-}
-/* Umfrage Button */
-.survey-button {
-    background: #007BFF;
-    color: white;
-    padding: 12px 20px;
-    border: none;
-    border-radius: 5px;
-    font-size: 1rem;
-    cursor: pointer;
-    transition: background 0.3s ease, transform 0.2s ease;
+
+/* Umfrage */
+.survey-section {
+    padding: 50px 0;
 }
 
-.survey-button:hover {
-    background: #0056b3;
-    transform: scale(1.05);
+.survey-section p {
+    max-width: 500px;
+    margin: 0 auto 20px auto;
+    padding: 0 10px;
 }
-
-.survey-container {
-    margin-bottom: 60px; /* Abstand nach unten vergrößert */
-}
-
-//* Modal Overlay */
-.modal {
-    display: none;
-    position: fixed;
-    z-index: 1000;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
-    overflow: auto;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-/* Modal Content - Jetzt ohne weißen Hintergrund */
-.modal-content {
-    background: none;
-    border: none;
-    width: 90%;
-    max-width: 600px;
-    text-align: center;
-}
-
-/* Umfrage-Frame */
-.modal-content iframe {
-    width: 100%;
-    height: 500px;
-    border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-}
-
-/* Schließen-Button */
-.close {
-    position: absolute;
-    top: 15px;
-    right: 25px;
-    color: white;
-    font-size: 28px;
-    font-weight: bold;
-    cursor: pointer;
-    background: rgba(0, 0, 0, 0.5);
-    padding: 5px 10px;
-    border-radius: 5px;
-}
-
-.close:hover {
-    background: rgba(255, 255, 255, 0.2);
-    color: #fff;
-}
-
-
 
 /* Beta-Anmeldung */
 .signup-section {
@@ -263,25 +187,14 @@ nav ul li a:hover {
     border-radius: 10px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     max-width: 500px;
-    margin: auto;
-}
-
-.signup-section h2 {
-    font-size: 1.8rem;
-    margin-bottom: 10px;
-}
-
-.signup-section p {
-    font-size: 1rem;
-    color: #666;
-    margin-bottom: 20px;
+    margin: 0 auto 60px auto;
 }
 
 .signup-section input {
     padding: 12px;
     border: 1px solid #007BFF;
     border-radius: 5px;
-    width: 80%;
+    width: 100%;
     max-width: 350px;
     outline: none;
     font-size: 1rem;
@@ -297,6 +210,8 @@ nav ul li a:hover {
     cursor: pointer;
     transition: background 0.3s ease;
     font-size: 1rem;
+    width: 100%;
+    max-width: 200px;
 }
 
 .signup-section button:hover {
@@ -305,14 +220,13 @@ nav ul li a:hover {
 
 /* Erfolgsnachricht */
 #success-message {
-    font-size: 1.2rem;
+    font-size: 1.1rem;
     background: #d4edda;
     color: #155724;
     padding: 15px;
     border-radius: 5px;
     margin-top: 20px;
     display: none;
-    animation: fadeIn 0.5s ease-in-out;
 }
 
 /* Footer */
@@ -320,86 +234,22 @@ footer {
     padding: 20px;
     background: #e3f2fd;
     color: #333;
-}
-
-/* PWA Installationsbutton */
-.pwa-install {
     text-align: center;
-    margin: 20px 0;
+    font-size: 0.9rem;
 }
 
-#install-button {
-    display: block;
-    background: #007BFF;
-    color: white;
-    padding: 15px 25px;
-    text-decoration: none;
-    font-weight: bold;
-    border-radius: 5px;
-    transition: background 0.3s ease, transform 0.2s ease;
-    border: none;
-    cursor: pointer;
-}
-
-#install-button:hover {
-    background: #0056b3;
-    transform: scale(1.05);
-}
-
-/* Fix für Safari */
+/* Fix Safari Menü */
 @supports (-webkit-touch-callout: none) {
     nav ul {
         display: none;
     }
-} 
+}
 
-/* ========== MOBILE OPTIMIERUNG ========== */
-@media (max-width: 768px) {
-    body {
-        padding: 0 15px; /* Seitenabstand für Textfluss */
-    }
-
-    .hero h1,
-    .signup-section h2,
-    .survey-section h2 {
-        font-size: 1.8rem; /* kleinere Schrift für Überschriften */
-        line-height: 1.3;
-    }
-
-    .hero p,
-    .signup-section p,
-    .survey-section p {
-        font-size: 1rem;
-        line-height: 1.6;
-        padding: 0 10px;
-    }
-
-    .survey-section {
-        margin-bottom: 40px;
-        padding: 40px 10px;
-    }
-
-    .signup-section {
-        margin-top: 20px;
-        padding: 40px 15px;
-    }
-
-    .cta-button,
-    .signup-section button,
-    #install-button,
-    .survey-button {
-        width: 100%;
-        max-width: 300px;
-        margin-top: 15px;
-    }
-
-    .signup-section input {
-        width: 100%;
-        max-width: 100%;
-    }
-
-    .menu-toggle {
-        right: 15px;
-        top: 25px;
+/* Media Queries (optional) */
+@media (min-width: 768px) {
+    .feature-grid {
+        flex-direction: row;
+        justify-content: center;
+        flex-wrap: wrap;
     }
 }
