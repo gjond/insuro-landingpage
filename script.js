@@ -154,3 +154,44 @@ window.onclick = function(event) {
         video.setAttribute("poster", "video-thumbnail.jpg"); // Stelle sicher, dass dieses Bild existiert
     }
 });
+
+// ==== GAMIFICATION QUIZ ====
+
+let currentQuestion = 0;
+let score = 0;
+
+const questions = [
+    "Frage 1: Hast du aktuell eine Hausratversicherung?",
+    "Frage 2: Kennst du den Unterschied zwischen Franchise und Selbstbehalt?",
+    "Frage 3: Wann hast du deine Versicherungen zuletzt überprüft?"
+];
+
+function answer(response) {
+    if (response === 'yes') score++;
+
+    currentQuestion++;
+
+    if (currentQuestion < questions.length) {
+        document.getElementById("question-text").textContent = questions[currentQuestion];
+    } else {
+        showResult();
+    }
+}
+
+function showResult() {
+    let level;
+    if (score === 3) {
+        level = "🚀 Smart Versichert: Du nutzt bereits smarte Tools!";
+    } else if (score === 2) {
+        level = "⚙️ Fortgeschritten: Du hast einen guten Überblick.";
+    } else {
+        level = "🔰 Einsteiger: Noch viel Potenzial zur Optimierung.";
+    }
+
+    localStorage.setItem("insuro_level", level); // Fortschritt speichern
+
+    document.getElementById("question-container").style.display = "none";
+    document.getElementById("level-text").textContent = level;
+    document.getElementById("result").style.display = "block";
+}
+
