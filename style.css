@@ -352,3 +352,54 @@ footer {
         display: none;
     }
 } 
+
+/* ========== MOBILE OPTIMIERUNG ========== */
+@media (max-width: 768px) {
+    body {
+        padding: 0 15px; /* Seitenabstand für Textfluss */
+    }
+
+    .hero h1,
+    .signup-section h2,
+    .survey-section h2 {
+        font-size: 1.8rem; /* kleinere Schrift für Überschriften */
+        line-height: 1.3;
+    }
+
+    .hero p,
+    .signup-section p,
+    .survey-section p {
+        font-size: 1rem;
+        line-height: 1.6;
+        padding: 0 10px;
+    }
+
+    .survey-section {
+        margin-bottom: 40px;
+        padding: 40px 10px;
+    }
+
+    .signup-section {
+        margin-top: 20px;
+        padding: 40px 15px;
+    }
+
+    .cta-button,
+    .signup-section button,
+    #install-button,
+    .survey-button {
+        width: 100%;
+        max-width: 300px;
+        margin-top: 15px;
+    }
+
+    .signup-section input {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .menu-toggle {
+        right: 15px;
+        top: 25px;
+    }
+}
