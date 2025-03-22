@@ -129,36 +129,6 @@ nav ul li a:hover {
     transform: scale(1.05);
 }
 
-.gamification-section {
-    padding: 60px 20px;
-    background: #e3f2fd;
-    text-align: center;
-    max-width: 600px;
-    margin: 0 auto;
-    border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-}
-
-.options {
-    margin-top: 20px;
-}
-
-.options button {
-    padding: 10px 20px;
-    margin: 10px;
-    font-size: 1rem;
-    background-color: #007BFF;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background 0.3s ease;
-}
-
-.options button:hover {
-    background-color: #0056b3;
-}
-
 /* Features */
 .features {
     padding: 60px 0;
