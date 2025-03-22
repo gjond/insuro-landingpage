@@ -1,111 +1,88 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>insuro – Die Zukunft der Versicherungen</title>
-    <link rel="stylesheet" href="style.css">
-    <script src="script.js" defer></script>
-</head> <link rel="manifest" href="manifest.json">
-
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>insuro – Die Zukunft der Versicherungen</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="script.js" defer></script>
+  <link rel="manifest" href="manifest.json" />
+</head>
 <body>
 
-    <!-- Header mit Logo -->
-    <header>
-        <img src="image.png" alt="Insuro Logo" class="logo">
-
-    <!-- Hamburger Menü Button -->
-    <button class="menu-toggle" id="menu-toggle" aria-label="Menü öffnen">
-        ☰
-    </button>
-
+  <!-- Header mit Logo & Menü -->
+  <header>
+    <img src="image.png" alt="Insuro Logo" class="logo" />
+    <button class="menu-toggle" id="menu-toggle" aria-label="Menü öffnen">☰</button>
     <nav>
-        <ul id="menu">
-            <li><a href="#features">Features</a></li>
-            <li><a href="#beta">Beta-Test</a></li>
-            <li><a href="#kontakt">Kontakt</a></li>
-        </ul>
+      <ul id="menu">
+        <li><a href="#features">Features</a></li>
+        <li><a href="#beta">Beta-Test</a></li>
+        <li><a href="#kontakt">Kontakt</a></li>
+      </ul>
     </nav>
-</header>
+  </header>
 
+  <!-- Hero Section -->
+  <section class="hero">
+    <h1><span class="highlight">Versicherungen</span> neu gedacht – <br />einfach, schnell & sicher</h1>
+    <p>Die erste Plattform, die KI, Automatisierung & smarte Empfehlungen kombiniert.</p>
+    <a href="#beta" class="cta-button">Teste insuro als einer der Ersten</a>
+  </section>
 
-    <!-- Hero Section mit animiertem Text -->
-    <section class="hero">
-        <h1><span class="highlight">Versicherungen</span> neu gedacht – <br> einfach, schnell & sicher</h1>
-        <p>Die erste Plattform, die KI, Automatisierung & smarte Empfehlungen kombiniert.</p>
-        <a href="#beta" class="cta-button">Teste insuro als einer der Ersten</a>
-    </section>
+  <!-- Features -->
+  <section id="features" class="features">
+    <h2>Was macht insuro einzigartig?</h2>
+    <div class="feature-grid">
+      <div class="feature-item">
+        <h3>🚀 Automatisierter Vergleich</h3>
+        <p>In Sekunden die besten Versicherungen – 100 % transparent.</p>
+      </div>
+      <div class="feature-item">
+        <h3>🤖 KI-gestützte Empfehlungen</h3>
+        <p>Massgeschneiderte Versicherungen – kein unnötiger Papierkram.</p>
+      </div>
+      <div class="feature-item">
+        <h3>🔒 Direkter Vertragsabschluss</h3>
+        <p>Vergleiche und schliesse deine Versicherung in wenigen Klicks ab.</p>
+      </div>
+    </div>
+  </section>
 
-    <!-- Features mit futuristischem Hover-Effekt -->
-    <section id="features" class="features">
-        <h2>Was macht insuro einzigartig?</h2>
-        <div class="feature-grid">
-            <div class="feature-item">
-                <h3>🚀 Automatisierter Vergleich</h3>
-                <p>In Sekunden die besten Versicherungen – 100 % transparent.</p>
-            </div>
-            <div class="feature-item">
-                <h3>🤖 KI-gestützte Empfehlungen</h3>
-                <p>Massgeschneiderte Versicherungen – kein unnötiger Papierkram.</p>
-            </div>
-            <div class="feature-item">
-                <h3>🔒 Direkter Vertragsabschluss</h3>
-                <p>Vergleiche und schliesse deine Versicherung in wenigen Klicks ab.</p>
-            </div>
-        </div>
-    </section>
-
-  
-<!-- Video Sektion mit Poster -->
-<!-- Video Sektion mit Vorschau -->
-<section class="video-section">
+  <!-- Video -->
+  <section class="video-section">
     <h2>🎥 Wie funktioniert Insuro?</h2>
     <div class="video-container">
-        <video width="100%" controls poster="video-cover.jpg">
-            <source src="video.mp4" type="video/mp4">
-            Dein Browser unterstützt dieses Videoformat nicht.
-        </video>
+      <video controls poster="video-cover.jpg">
+        <source src="video.mp4" type="video/mp4" />
+        Dein Browser unterstützt dieses Videoformat nicht.
+      </video>
     </div>
-</section>
+  </section>
 
-    
-<!-- Umfrage Sektion -->
-<section class="survey-section" id="umfrage">
+  <!-- Umfrage -->
+  <section class="survey-section" id="umfrage">
     <h2>📣 Deine Meinung zählt!</h2>
-    <p>Hilf uns den Versicherungsmarkt zu revolutionieren:</p>
-    <a href="https://forms.gle/3tzXCYVg9mLQbxsc8" target="_blank" class="cta-button">
-        Jetzt teilnehmen
-    </a>
-</section>
+    <p>Hilf uns, Insuro besser zu machen – 1 Minute, 1 Klick:</p>
+    <a href="https://forms.gle/3tzXCYVg9mLQbxsc8" target="_blank" class="cta-button">Jetzt teilnehmen</a>
+  </section>
 
+  <!-- Beta-Anmeldung -->
+  <section id="beta" class="signup-section">
+    <h2>Jetzt Beta-Zugang sichern</h2>
+    <p>Teste insuro als einer der Ersten & profitiere von exklusiven Vorteilen.</p>
+    <form id="signup-form" action="https://formspree.io/f/xvgkgaev" method="POST">
+      <input type="email" name="email" id="email" placeholder="Deine E-Mail-Adresse" required />
+      <button type="submit">Anmelden</button>
+    </form>
+    <p id="success-message">🎉 Danke! Deine Anmeldung war erfolgreich.</p>
+  </section>
 
-    <!-- Beta-Anmeldung -->
-   <section id="beta" class="signup-section" style="margin-top: 60px;">
+  <!-- Footer -->
+  <footer>
+    <p>© 2025 insuro. Alle Rechte vorbehalten.</p>
+    <p style="color: gray;">Diese Seite ist ein Testprojekt zur Evaluierung eines Konzepts. Es handelt sich nicht um ein reales Produkt oder Unternehmen.</p>
+  </footer>
 
-        <h2>Jetzt Beta-Zugang sichern</h2>
-        <p>Teste insuro als einer der Ersten & profitiere von exklusiven Vorteilen.</p>
-
-        <form id="signup-form" action="https://formspree.io/f/xvgkgaev" method="POST">
-            <input type="email" name="email" id="email" placeholder="Deine E-Mail-Adresse" required>
-            <button type="submit">Anmelden</button>
-        </form>
-
-        <!-- Erfolgsnachricht -->
-        <p id="success-message" style="display: none; font-weight: bold; color: green;">
-            🎉 Danke! Deine Anmeldung war erfolgreich.
-        </p>
-    </section>
-
-
-    <!-- Footer -->
-    <footer>
-        <p>© 2025 insuro. Alle Rechte vorbehalten.</p>
-        <p style="font-size: 0.9rem; color: gray;">
-            Diese Seite ist ein Testprojekt zur Evaluierung eines Konzepts. Es handelt sich nicht um ein reales Produkt oder Unternehmen.
-        </p>
-    </footer>
-
-    
-    
 </body>
 </html>
